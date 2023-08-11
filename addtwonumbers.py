@@ -59,6 +59,7 @@ class Solution(object):
         node1 = list1.get_head_node()
         node2 = list2.get_head_node()
 
+        # Need to keep carrying the one when one list runs out
         while node1 and node2 != None:
             x = node1.get_val() + node2.get_val()
             print(x)
