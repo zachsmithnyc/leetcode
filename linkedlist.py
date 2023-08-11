@@ -103,13 +103,28 @@ class LinkedList:
     temp = node1.get_next_node()
     node1.set_next_node(node2.get_next_node())
     node2.set_next_node(temp)
+  
+  def return_nth_last(self, n):
+    nth_last = None
+    count = 1
+    tail_point = self.get_head_node()
 
+    while tail_point:
+      tail_point = tail_point.get_next_node()
+      count += 1
+
+      if count >= n + 1:
+        if nth_last == None:
+          nth_last = self.get_head_node()
+        else:
+          print(nth_last.get_value())
+          nth_last = nth_last.get_next_node()
+
+    return nth_last.get_value()
     
     
 
-
-
-
+"""
 phrase = LinkedList('hell')
 phrase.insert_beginning('what')
 phrase.insert_beginning('the')
@@ -118,3 +133,12 @@ phrase.insert_beginning('what')
 phrase.insert_beginning('what')
 phrase.swap_nodes_by_value('the', 'hell')
 print(phrase.stringify_list())
+"""
+
+list1 = LinkedList()
+
+for i in range(10):
+  list1.insert_beginning(i)
+
+print(list1.stringify_list())
+print(list1.return_nth_last(5))
