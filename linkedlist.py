@@ -64,6 +64,50 @@ class LinkedList:
 
       return current_node
 
+  def swap_nodes_by_value(self, va1, va2):
+    if va1 == va2:
+      print("Elements are the same - no swap needed!")
+      return
+    
+    node1 = self.get_head_node()
+    node2 = self.get_head_node()
+    node1_prev = None
+    node2_prev = None
+
+    while node1 != None:
+      if node1.get_value() == va1:
+        break
+      node1_prev = node1
+      node1 = node1.get_next_node()
+
+    while node2 != None:
+      if node2.get_value() == va2:
+        break
+      node2_prev = node2
+      node2 = node2.get_next_node()
+
+    if (node1 is None or node2 is None):
+      print("Swap note possible - one or more element is not in the list.")
+      return  
+    
+    if node1_prev == None:
+      self.head_node = node2
+    else:
+      node1_prev.set_next_node(node2)
+
+    if node2_prev == None:
+      self.head_node = node1
+    else:
+      node2_prev.set_next_node(node1)
+
+    temp = node1.get_next_node()
+    node1.set_next_node(node2.get_next_node())
+    node2.set_next_node(temp)
+
+    
+    
+
+
 
 
 phrase = LinkedList('hell')
@@ -72,5 +116,5 @@ phrase.insert_beginning('the')
 phrase.insert_beginning('what')
 phrase.insert_beginning('what')
 phrase.insert_beginning('what')
-phrase.remove_by_key('what')
+phrase.swap_nodes_by_value('the', 'hell')
 print(phrase.stringify_list())
