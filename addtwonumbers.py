@@ -61,26 +61,26 @@ class Solution(object):
 
         while node1 and node2 != None:
             x = node1.get_val() + node2.get_val()
-            #print(x)
-            if x >= 10:
+            print(x)
+            while x >= 10:
                 y = x % 10
                 list3.insert_end(y)
-                #print(y)
+                print(y)
                 node1 = node1.get_next_node()
                 node2 = node2.get_next_node()
-                x = node1.get_val() + node2.get_val() + 1
-                #print(x)
-                list3.insert_end(x)
-                node1 = node1.get_next_node()
-                node2 = node2.get_next_node()
-            else:
-                list3.insert_end(x)
-                node1 = node1.get_next_node()
-                node2 = node2.get_next_node()
+                if node1 == None:
+                    x = node2.get_val() + 1
+                if node2 == None:
+                    x = node1.get_val() + 1
+                else:
+                    x = node1.get_val() + node2.get_val() + 1    
+            list3.insert_end(x)
+            node1 = node1.get_next_node()
+            node2 = node2.get_next_node()
 
         return print(list3.stringify_list())
 
-l1 = [2, 4, 3]
-l2 = [5, 6, 4]
+l1 = [9, 9, 9, 9, 9, 9, 9]
+l2 = [9, 9, 9, 9]
 
 Solution().addTwoNumbers(l1, l2)
