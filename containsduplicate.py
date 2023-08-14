@@ -5,6 +5,8 @@ class Solution(object):
         :rtype: bool
         """
         #create a hashset
+        #when you need a collection of unique elements that can be searched quickly
+        #use a hashset
         hashset = set()
         for i in nums:
             if i in hashset:
