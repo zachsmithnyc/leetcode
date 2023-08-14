@@ -78,6 +78,10 @@ class Solution(object):
             list3.insert_end(x)
             node1 = node1.get_next_node()
             node2 = node2.get_next_node()
+        
+        #while node1 or node2 == None:
+            #if node1 == None:
+                #a = node1.get_val()
 
         return print(list3.stringify_list())
 
