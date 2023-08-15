@@ -121,6 +121,19 @@ class LinkedList:
           nth_last = nth_last.get_next_node()
 
     return nth_last.get_value()
+  
+  def return_middle(self):
+    fast_pointer = self.get_head_node()
+    slow_pointer = self.get_head_node()
+
+    while fast_pointer:
+      fast_pointer = fast_pointer.get_next_node()
+      if fast_pointer != None:
+        fast_pointer = fast_pointer.get_next_node()
+        slow_pointer = slow_pointer.get_next_node()
+    
+    return slow_pointer.get_value()
+    
     
     
 
@@ -137,8 +150,8 @@ print(phrase.stringify_list())
 
 list1 = LinkedList()
 
-for i in range(10):
+for i in range(1, 8):
   list1.insert_beginning(i)
 
 print(list1.stringify_list())
-print(list1.return_nth_last(5))
+print(list1.return_middle())
