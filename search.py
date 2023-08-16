@@ -1,15 +1,13 @@
 import random
 
 
-def linear_search_max(list, target):
+def linear_search_max(list):
     max = list[0]
     for i in range(0, len(list)):
         if list[i] > max:
-            max = i
+            max = list[i]
     return max
 
-list = []
-for i in random.rangrange(1, 20):
-    list.append(i)
+list = [100, 10, 20 , 40, 200, 33, 43, 11]
 
-linear_search_max(list)
+print(linear_search_max(list))
