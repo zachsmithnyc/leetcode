@@ -13,6 +13,14 @@ class Solution(object):
                 return True
             hashset.add(i)
         return False
+    
+    def bruteforce_dup(self, nums):
+        numlist = []
+        for i in nums:
+            if i in numlist:
+                return True
+            numlist.append(i)
+        return False
 
         
 
@@ -27,3 +35,8 @@ print(solution.containsDuplicate(nums1))
 print(solution.containsDuplicate(nums2))
 print(solution.containsDuplicate(nums3))
 print(solution.containsDuplicate(nums4))
+
+print(solution.bruteforce_dup(nums1))
+print(solution.bruteforce_dup(nums2))
+print(solution.bruteforce_dup(nums3))
+print(solution.bruteforce_dup(nums4))
