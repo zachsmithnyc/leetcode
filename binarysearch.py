@@ -20,8 +20,25 @@ def binary_search(sorted_elements, target):
         else:
             return result + mid_idx + 1
 
+#pointers solution
+def pointers(elements, left, right, target):
+    if left >= right:
+        return 'value not found'
+    mid_idx = (left + right) // 2
+    mid_val = elements[mid_idx]
+
+    if mid_val == target:
+        return mid_idx
+    if mid_val > target:
+        return pointers(elements, left, mid_idx, target)
+    if mid_val < target:
+        return pointers(elements, mid_idx + 1, right, target)
+
 
 
 nums = [1, 2, 3, 4, 5, 6, 7]
 
 print(binary_search(nums, 6))
+start = 0
+stop = len(nums)
+print(pointers(nums, start, stop, 6))
