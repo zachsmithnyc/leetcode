@@ -34,6 +34,22 @@ def pointers(elements, left, right, target):
     if mid_val < target:
         return pointers(elements, mid_idx + 1, right, target)
 
+def whilePointers(elements, target):
+    left_pointer = 0
+    right_pointer = len(elements)
+
+    while left_pointer < right_pointer:
+        mid_idx = (left_pointer + right_pointer) // 2
+        mid_val = elements[mid_idx]
+        if mid_val == target:
+            return mid_idx
+        if mid_val > target:
+            right_pointer = mid_idx
+        if mid_val < target:
+            left_pointer = mid_idx + 1
+    
+    return "Value not in list"
+
 
 
 nums = [1, 2, 3, 4, 5, 6, 7]
@@ -42,3 +58,4 @@ print(binary_search(nums, 6))
 start = 0
 stop = len(nums)
 print(pointers(nums, start, stop, 6))
+print(whilePointers(nums, 6))
